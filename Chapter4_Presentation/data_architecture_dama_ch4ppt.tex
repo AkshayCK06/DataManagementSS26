@@ -172,7 +172,7 @@ Data architecture does not stand alone. It must work with business, application,
 \end{itemize}
 \column{0.48\textwidth}
 \centering
-\begin{tikzpicture}[scale=0.74]
+\begin{tikzpicture}[scale=0.75, font=\footnotesize]
 \foreach \x in {0,...,5} {\draw[gray!70] (\x,0) rectangle +(1,4.2);} 
 \foreach \y in {0,...,4} {\draw[gray!70] (0,\y) -- (6,\y);} 
 \node at (0.5,4.45) {What};
@@ -181,15 +181,20 @@ Data architecture does not stand alone. It must work with business, application,
 \node at (3.5,4.45) {Who};
 \node at (4.5,4.45) {When};
 \node at (5.5,4.45) {Why};
-\node[rotate=90] at (-0.45,3.5) {Planner};
-\node[rotate=90] at (-0.45,2.5) {Owner};
-\node[rotate=90] at (-0.45,1.5) {Designer};
-\node[rotate=90] at (-0.45,0.5) {Builder};
+\tikzset{rowlabel/.style={rotate=90, font=\footnotesize}}
+\node[rotate=90] at (-0.45,3.5) {\footnotesize Planner};
+
+\node[rotate=90] at (-0.45,2.5) {\footnotesize Owner};
+
+\node[rotate=90] at (-0.45,1.5) {\footnotesize Designer};
+
+\node[rotate=90] at (-0.45,0.5) {\footnotesize Builder};
 \fill[teal!20] (0,0) rectangle (1,4);
 \end{tikzpicture}
 \end{columns}
 \sourcefooter
 \end{frame}
+
 
 \begin{frame}{Enterprise data model: the master blueprint}
 \begin{columns}[T,totalwidth=\textwidth]
