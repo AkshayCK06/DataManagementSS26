@@ -239,109 +239,133 @@ In retail, \textit{Customer} belongs in one core subject area, but connects to o
 \sourcefooter
 \end{frame}
 
-\begin{frame}{Data flow design and lineage}
+\begin{frame}{Data Architecture Implementation}
 \begin{columns}[T,totalwidth=\textwidth]
 \column{0.56\textwidth}
 \begin{itemize}
-    \item Data flows show how data moves through processes and systems
-    \item They reveal origin, storage, use, and transformation
-    \item They can map relations between applications, data stores, networks, roles, and locations
-    \item They support lineage analysis and better control of change
+    \item Implementation refers to putting Data Architecture into action
+    \item Implementation of Data Architecture includes the below key points: 
+    \begin{itemize}
+    	\item Creation of Data models, data flows and roadmaps
+    	\item Setting up of teams
+    	\item Setting up the way of working
+    	\item Using data architecture in project
+    	\item Creating awareness in the organization
+    \end{itemize}
+    \item Implementation usually starts in the project and grows across the organization.
+    \item Early project may need extra efforts and funding
 \end{itemize}
 \column{0.44\textwidth}
-\centering
-\begin{tikzpicture}[node distance=0.55cm]
-\node[draw,rounded corners,fill=navy!10,minimum width=1.7cm,minimum height=0.8cm] (a) {CRM};
-\node[draw,rounded corners,fill=navy!10,right=0.8cm of a,minimum width=1.8cm,minimum height=0.8cm] (b) {Orders};
-\node[draw,rounded corners,fill=navy!10,below=0.85cm of b,minimum width=1.9cm,minimum height=0.8cm] (c) {Warehouse};
-\node[draw,rounded corners,fill=navy!10,left=0.8cm of c,minimum width=1.9cm,minimum height=0.8cm] (d) {Billing};
-\draw[-{Latex[length=2mm]},thick] (a)-- node[above,sloped]{\tiny customer data} (b);
-\draw[-{Latex[length=2mm]},thick] (b)-- node[right]{\tiny transactions} (c);
-\draw[-{Latex[length=2mm]},thick] (c)-- node[below,sloped]{\tiny analytics feeds} (d);
-\draw[-{Latex[length=2mm]},thick] (b)-- node[left]{\tiny invoices} (d);
-\end{tikzpicture}
 \end{columns}
 \sourcefooter
 \end{frame}
 
-\begin{frame}{Two useful ways to show data flow}
-\begin{columns}[T,totalwidth=\textwidth]
-\column{0.49\textwidth}
-\begin{block}{1. Matrix view}
-Best for showing which processes create, read, update, or depend on major entities.
-\end{block}
-\begin{tabular}{lcc}
-\toprule
- & Customer & Order \\
-\midrule
-Sales & C/R & C/R \\
-Billing & R & R/U \\
-Support & R/U & R \\
-\bottomrule
-\end{tabular}
-
-\column{0.49\textwidth}
-\begin{block}{2. Diagram view}
-Best for showing system-to-system movement and transformation of data.
-\end{block}
-\vspace{0.3em}
-\centering
-\begin{tikzpicture}[scale=0.9]
-\node[draw,rounded corners,fill=teal!10] (x) at (0,0) {Source};
-\node[draw,rounded corners,fill=teal!10] (y) at (2.1,0) {Transform};
-\node[draw,rounded corners,fill=teal!10] (z) at (4.3,0) {Target};
-\draw[-{Latex[length=2mm]},thick] (x)--(y);
-\draw[-{Latex[length=2mm]},thick] (y)--(z);
-\end{tikzpicture}
-\end{columns}
-\sourcefooter
-\end{frame}
-
-\begin{frame}{Interactive prompt: think like an architect}
-\begin{block}{Mini discussion}
-A university wants one trusted student record across admissions, exams, finance, and alumni systems.
-\end{block}
+\begin{frame}{Key elements in Implementation}
+	Below are the central elements that are involved in implementation of Data Architecture:
 \begin{enumerate}
-    \item What should be the core subject areas?
-    \item Where would the main data ownership conflicts appear?
-    \item Which data flows would you document first?
+	\item Metadata
+	\begin{itemize}
+		\item Data Architecture artifacts such as models, flows are crucial metadata
+		\item Metadata helps understand data and system
+		\item It is used to validate the schema
+	\end{itemize}
+	\item Governance Basics
+	\begin{itemize}
+		\item It is helpful in defining rules, standards and compliance
+		\item It helps ensure project flow architecture
+	\end{itemize}
+	\item Data Quality
+	\begin{itemize}
+		\item It aims at improving the data quality and trust
+		\item It ensures that inconsistent data and data copies are avoided
+	\end{itemize}
 \end{enumerate}
-\vspace{0.5em}
-\textbf{Possible starting answer:} Student, Course, Enrollment, Payment, Degree, Identity, and Communication.
 \end{frame}
 
-\begin{frame}{Activities: establish a data architecture practice}
-\begin{itemize}
-    \item Evaluate existing architecture specifications
-    \item Develop a roadmap for target-state architecture
-    \item Manage enterprise data requirements within projects
-    \item Use architecture to reduce complexity and avoid uncontrolled system growth
-\end{itemize}
-
-\begin{block}{Why this matters}
-Without active architecture practice, systems drift into copy-heavy, interface-heavy, low-trust environments --- what teams often call \textit{data spaghetti}.
-\end{block}
-\sourcefooter
+\begin{frame}{MDM \& Architecture Approach}
+\begin{enumerate}
+	\item Master Data (MDM Concept)
+	\begin{itemize}
+		\item Implementation of a Data Architecture mostly starts with master data(e.g., customer, product	)
+		\item This is then expanded to transaction data
+	\end{itemize}
+	\item Architectural Patterns\\
+	There are mainly two approaches:
+	\begin{itemize}
+		\item Agile: step by step, incremental and flexible
+		\item Traditional: Blueprints, standards are followed
+	\end{itemize}
+	However, mostly in the organization the hybrid approach is followed which involves both mentioned above
+	\item Data Architecture ensures the below:
+	\begin{itemize}
+		\item Standard structure(Standardization)
+		\item Integration across system (Integration)
+		\item Reuse of data assets (Re-usability)
+	\end{itemize}
+\end{enumerate}
 \end{frame}
 
-\begin{frame}{What architects actually do in practice}
-\small
-\begin{tabularx}{\textwidth}{>{\bfseries}p{3cm}X}
-\toprule
-Activity & Practical meaning \\
-\midrule
-Evaluate current state & Review models, interfaces, definitions, redundancies, and gaps \\
-Roadmap target state & Decide the future blueprint, priorities, and transition path \\
-Guide projects & Make sure new initiatives follow enterprise data requirements \\
-Coordinate across domains & Align with business, application, and technology architects \\
-\bottomrule
-\end{tabularx}
 
-\vspace{0.5em}
-\begin{block}{Example}
-When a telecom launches a self-care app, architects decide which customer, product, and billing data must stay authoritative and how the app should consume them.
-\end{block}
-\sourcefooter
+\begin{frame}{Risk, Culture \& Success}
+\begin{enumerate}
+	\item Risk: The main risk involved in building a Data Architecture are:
+	\begin{itemize}
+		\item Lack of Management support
+		\item Poor communication
+		\item Resistance to change
+		\item Inexperienced project leaders
+	\end{itemize}
+	\item Cultural Success Factors\\
+	\begin{itemize}
+		\item Data should be treated as business assets
+		\item Thinking should be at the enterprise level
+		\item Accept and follow the governance practices
+	\end{itemize}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{How is Data Architecture Implemented}
+	Data Architecture Implementation Process:
+	\begin{itemize}
+		\item Data is received from \textbf{data providers (source systems)}
+		\item Data enters an \textbf{incoming tier (landing zone)}
+		\item \textbf{Metadata is used} to validate schema compatibility
+		\item Validated data is stored in \textbf{data storage (e.g., RDS)}
+		\item Approved data is made available to \textbf{data consumers}
+		\item Ensures \textbf{controlled, consistent, and trusted data flow}
+	\end{itemize}
+	
+	\hfill
+	\begin{minipage}[t]{0.9\textwidth}
+		
+		\begin{tikzpicture}[scale=0.8, every node/.style={font=\scriptsize}]
+			
+			% Nodes
+			\node (p) [draw, rounded corners, fill=blue!20, minimum width=2cm, minimum height=0.8cm] 
+			{Providers};
+			
+			\node (i) [right of=p, xshift=2cm, draw, dashed, rounded corners, fill=gray!15, minimum width=2.2cm, minimum height=1cm] 
+			{Incoming};
+			
+			\node (s) [right of=i, xshift=2cm, draw, rounded corners, fill=green!20, minimum width=2cm, minimum height=0.8cm] 
+			{RDS};
+			
+			\node (c) [right of=s, xshift=2cm, draw, rounded corners, fill=orange!20, minimum width=2cm, minimum height=0.8cm] 
+			{Consumer};
+			
+			% Prominent arrows
+			\draw[->, line width=1.2pt, black] (p) -- (i);
+			\draw[->, line width=1.2pt, black] (i) -- (s);
+			\draw[->, line width=1.2pt, black] (s) -- (c);
+			
+			% Metadata / validation (dashed but visible)
+			\node (m) [above of=i, yshift=0.5cm] {\scriptsize Metadata + Contract Validation};
+			\draw[->, dashed, line width=1pt, black] (m) -- (i);
+			
+		\end{tikzpicture}
+		
+	\end{minipage}
+	
 \end{frame}
 
 \begin{frame}{Integrating data architecture with enterprise architecture}
